@@ -16,6 +16,8 @@ class MineSweeper {
         this.colN = colN;
         this.mineSwee = new String[rowN][colN];
         this.mines = new int[(rowN*colN)/4];
+
+        // Map
         for (int i = 0; i < rowN;i++){
             for (int j = 0; j < colN; j++){
                 mineSwee[i][j] = " - ";
@@ -43,6 +45,7 @@ class MineSweeper {
         }
     }
 
+    // Control Point
     public int mineControl(int row, int col){
         if((Arrays.stream(mines).anyMatch(x -> x == (row-1)*this.colN+col))){
             return -1;
@@ -68,6 +71,8 @@ class MineSweeper {
             return output;
         }
     }
+
+    // Start
     public void run(){
         boardmap(mineSwee);
         int sRow,sCol;
@@ -94,9 +99,5 @@ class MineSweeper {
                 }
             }
         }
-
-
-
     }
-
 }
